@@ -40,7 +40,6 @@ body {
 }
 
 table {
-  width: 100%;
   margin: 0 0 20px 0;
   text-align: left;
 }
@@ -153,38 +152,6 @@ hr {
   margin: $spacing-unit / 2 0;
   border: 0;
   background-color: $grey-color;
-}
-
-
-/**
- * Code formatting
- */
-pre,
-code {
-  font-family: $monospace-font-family;
-  font-size: $base-font-size * 0.75;
-  @include media-query($on-laptop) {
-    font-size: 0.8rem;
-  }  
-  border: 1px solid $grey-color-light;
-  border-radius: 0;
-}
-
-code {
-  padding: 1px 5px;
-  background-color: $grey-color-light;
-}
-
-pre {
-  padding: 8px 12px;
-  overflow: scroll;
-
-  > code {
-    border: 0;
-    padding-right: 0;
-    padding-left: 0;
-    background-color: transparent;
-  }
 }
 
 

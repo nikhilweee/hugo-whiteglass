@@ -27,12 +27,16 @@
     border-color: invert($grey-color);
   }
 
-  pre, code, blockquote, .footnotes .post-meta {
+  blockquote, .footnotes, .post-meta {
     filter: brightness(0.85);
   }
 
   iframe, img, video, hr {
     filter: invert(95%) hue-rotate(-180deg);
+  }
+
+  .highlight, pre, code{
+    background-color: darken($background-white, 20%);
   }
 }
 

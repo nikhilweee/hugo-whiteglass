@@ -171,10 +171,6 @@ p.post-list {
   }
 }
 
-div.highlight {
-  overflow: scroll;
-}
-
 .post-continue {
   a {
     padding: 8px 15px;
@@ -292,4 +288,45 @@ div.highlight {
   .next {
     float: right;
   }
+}
+
+
+/**
+ * Code Formatting
+ */
+ .highlight, pre, code {
+  background-color: $grey-color-light;
+  font-family: $monospace-font-family;
+  font-size: $base-font-size * 0.75;
+  @include media-query($on-laptop) {
+    font-size: 0.8rem;
+  }  
+}
+
+div.highlight {
+  overflow: auto;
+  // border: 1px solid $grey-color-light;
+  pre {
+    border: none;
+    overflow: visible;
+  }
+}
+
+pre {
+  padding: 8px 12px;
+  overflow: auto;
+
+  > code {
+    padding: 0;
+  }
+}
+
+table.lntable {
+  td:first-child {
+    border-right: 1px solid $grey-color;
+  }
+}
+
+code {
+  padding: 1px 5px;
 }
