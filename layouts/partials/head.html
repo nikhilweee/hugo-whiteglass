@@ -17,8 +17,12 @@
     {{- $options := (dict "TargetPath" "main.css" "outputStyle" "compressed" "enableSourceMap" true) -}}
     {{- $style := resources.Get "sass/main.scss" | resources.ToCSS $options -}}
     <link rel="icon" type="image/svg" href="/static/favicon.png">
-    <link rel="stylesheet" href="{{- $style.RelPermalink -}}">
+    <link rel="stylesheet" type="text/css" href="{{- $style.RelPermalink -}}">
     <link rel="canonical" href="{{- .Permalink -}}">
+
+    {{ if .Params.citations }}
+        <link rel="stylesheet" type="text/css" href="{{ "/hugo-cite.css" | relURL }}" />
+    {{ end }}
 
     <!-- Alternative Formats -->
     {{- range .AlternativeOutputFormats -}}
