@@ -239,6 +239,7 @@ p.post-list {
   border-bottom: 1px solid $grey-color;
   padding-top: $spacing-unit * 0.5;
   padding-bottom: $spacing-unit * 0.5;
+  // text-align: justify;
 
   h1 {
     font-size: 2rem;
@@ -329,4 +330,20 @@ table.lntable {
 
 code {
   padding: 1px 5px;
+}
+
+/**
+ * KaTeX Customizations
+ */
+.katex-display {
+  overflow-x: auto;
+  margin: 0.5em 0;
+  .base {
+    margin: 0.25em 0;
+  }
+  .katex {
+    white-space: normal;
+    overflow-x: visible;
+    // overflow-wrap: break-word;
+  }
 }
