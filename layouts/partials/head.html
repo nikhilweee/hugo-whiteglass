@@ -2,7 +2,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Prevent mobile browsers from zooming out -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{ if not (hasPrefix .RelPermalink "/blog") }}
@@ -11,11 +11,9 @@
         <title>{{ with .Title }}{{- . }} - {{ end }}{{ .Site.Title -}}</title>
     {{ end }}
 
-    {{ $description := (.Description | default .Summary) | markdownify }}
-    <meta name="description" content="{{ $description }}">
-
     {{- $options := (dict "TargetPath" "main.css" "outputStyle" "compressed" "enableSourceMap" true) -}}
     {{- $style := resources.Get "sass/main.scss" | resources.ToCSS $options -}}
+
     <link rel="icon" type="image/svg" href="/static/favicon.png">
     <link rel="stylesheet" type="text/css" href="{{- $style.RelPermalink -}}">
     <link rel="canonical" href="{{- .Permalink -}}">
@@ -49,6 +47,8 @@
         </script>
     {{ end }}
 
+    <!--  Open Graph API  -->
+    {{ template "_internal/opengraph.html" . }}
 
     <!-- Fonts  -->
     <link href="https://cdn.jsdelivr.net/npm/charter-webfont/charter.min.css" rel="stylesheet">

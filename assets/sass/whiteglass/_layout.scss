@@ -13,6 +13,10 @@
   margin: 0.2em 0;
   font-size: 1.8em;
 
+  a {
+    vertical-align: text-bottom;
+  }
+
   a,
   a:visited {
     color: $text-color;
@@ -25,7 +29,7 @@
 
   // Toggle
   svg {
-    vertical-align: text-bottom;
+    vertical-align: sub;
     cursor: pointer;
   }
 
@@ -163,6 +167,7 @@
 }
 
 .post p {
+  // Anchor for citations in posts
   position: relative;
 }
 
@@ -252,7 +257,8 @@ p.post-list {
   top: 1em;
   max-height: 95vh;
   overflow-y: scroll;
-  margin: 10em 1em;
+  overflow-x: visible;
+  margin: 18em 1em;
 
   ul,
   li {
@@ -305,7 +311,7 @@ p.post-list {
 }
 
 .post-subtitle {
-  font-size: 1.4em;
+  font-size: 1.8em;
 
   @include media-query($on-laptop) {
     font-size: 1.4em;
