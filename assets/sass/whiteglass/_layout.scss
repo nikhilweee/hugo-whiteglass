@@ -1,42 +1,38 @@
 /**
  * Site header
  */
-.site-title {
-  font-size: 1.5em;
-  font-weight: 300;
-  line-height: 3rem;
-  margin-bottom: 0;
-  float: left;
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
 
-  &,
-  &:visited {
+.site-title {
+  flex: 0 1 auto;
+  margin: 0.2em 0;
+  font-size: 1.8em;
+
+  a,
+  a:visited {
     color: $text-color;
   }
 }
 
 .site-nav {
-  float: right;
-  line-height: 3rem;
+  flex: 0 1 auto;
+  margin: auto 0;
 
-  // Dark Mode
+  // Toggle
   svg {
-    vertical-align: middle;
-    height: 1.4em;
-    width: 1.4em;
+    vertical-align: text-bottom;
     cursor: pointer;
   }
 
   a {
-    vertical-align: middle;
-  }
-
-  // Common
-  .page-link {
+    font-size: 1.2em;
     color: $text-color;
-    line-height: $base-line-height;
-    display: inline-block;
 
-    // Gaps between nav items, but not on the last one
     &:not(:last-child) {
       margin-right: 0.5em;
     }
@@ -49,6 +45,7 @@
       &:not(:last-child) {
         margin-right: 0;
       }
+
       margin-left: 0.2em;
     }
   }
@@ -60,9 +57,43 @@
  */
 .site-footer {
   padding: $spacing-unit 0;
-  font-size: 15px;
+  height: 40px;
+  font-size: 1em;
   color: $grey-color;
   text-align: center;
+}
+
+
+/**
+ * About
+ */
+.profile-image {
+  border-radius: 50%;
+  max-width: 90%;
+  min-width: 200px;
+  margin-bottom: 1em;
+
+  @include media-query($on-palm) {
+    max-width: 80%;
+  }
+}
+
+.profile-links {
+  padding-top: 0.5em;
+
+  a {
+    padding: 0.2em;
+  }
+}
+
+.profile-div {
+  float: right;
+  max-width: 35%;
+  text-align: center;
+
+  @include media-query($on-palm) {
+    max-width: 100%;
+  }
 }
 
 
@@ -80,6 +111,7 @@
   display: inline-block;
   max-width: calc(100% - 125px);
   color: darken($brand-color, 10%);
+  font-weight: $bold-font-weight;
   font-size: 1em;
 }
 
@@ -96,31 +128,42 @@
 
 
 /**
- * Sidebar
+ * Pagination
  */
-.sidebar {
-  flex: 1 0 0;
-  font-size: 0.8rem;
-  @include media-query($on-laptop) {
-    display: none;
+.pagination {
+  padding: $spacing-unit / 2 0;
+  border-top: 1px solid $grey-color;
+  border-bottom: 1px solid $grey-color;
+  text-align: center;
+  @extend %clearfix;
+
+  a {
+    color: $text-color;
+  }
+
+  .previous {
+    float: left;
+  }
+
+  .next {
+    float: right;
   }
 }
-
-.wrapper {
-  width: 80%;
-  flex: 3 0 0;
-}
-
-.flex-parent{
-  display: flex;
- }
 
 
 /**
  * Page content
  */
 .page-content {
-  padding: $spacing-unit 0;
+  // header: 60px
+  // footer: 40px + (10px + 10px)
+  // body: min-height + (30px + 30px)
+  min-height: calc(100vh - 180px);
+  padding: $spacing-unit;
+}
+
+.post p {
+  position: relative;
 }
 
 .post-list {
@@ -131,7 +174,7 @@
     text-decoration: none;
   }
 
-  > li {
+  >li {
     margin-bottom: $spacing-unit / 2;
   }
 }
@@ -147,10 +190,10 @@ p.post-list {
   list-style: none;
 
   .post-link {
-    font-size: 24px;
+    font-size: 1em;
   }
 
-  > li {
+  >li {
     margin-bottom: $spacing-unit;
   }
 }
@@ -161,6 +204,7 @@ p.post-list {
 }
 
 .post-link {
+
   &,
   &:visited {
     color: $text-color;
@@ -196,7 +240,8 @@ p.post-list {
 .post-toc {
   padding: 1em 0;
   display: none;
-  @include media-query($on-laptop) {
+
+  @include media-query($on-palm) {
     display: block;
   }
 }
@@ -205,13 +250,44 @@ p.post-list {
   position: sticky;
   align-self: start;
   top: 1em;
-  margin-top: 10em;
-  ul, li {
+  max-height: 95vh;
+  overflow-y: scroll;
+  margin: 10em 1em;
+
+  ul,
+  li {
     margin-left: 0.5em;
   }
-  @include media-query($on-laptop) {
+
+  h1 {
+    margin-bottom: 0px;
+  }
+
+  @include media-query($on-palm) {
     display: none;
   }
+}
+
+
+/**
+ * Sidebar
+ */
+.flex-parent {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar {
+  flex: 1 0 fill;
+  font-size: 0.8rem;
+
+  @include media-query($on-palm) {
+    display: none;
+  }
+}
+
+.flex-content {
+  flex: 0 1 $content-width;
 }
 
 
@@ -220,14 +296,17 @@ p.post-list {
  */
 .post-title {
   font-size: 2.2em;
+
   @include media-query($on-laptop) {
     font-size: 1.7em;
   }
+
   margin-bottom: 0.2em;
 }
 
 .post-subtitle {
   font-size: 1.4em;
+
   @include media-query($on-laptop) {
     font-size: 1.4em;
   }
@@ -243,6 +322,7 @@ p.post-list {
 
   h1 {
     font-size: 2rem;
+
     @include media-query($on-laptop) {
       font-size: 1.6rem;
     }
@@ -250,6 +330,7 @@ p.post-list {
 
   h2 {
     font-size: 1.6rem;
+
     @include media-query($on-laptop) {
       font-size: 1.5rem;
     }
@@ -257,6 +338,7 @@ p.post-list {
 
   h3 {
     font-size: 1.4rem;
+
     @include media-query($on-laptop) {
       font-size: 1.3rem;
     }
@@ -267,83 +349,7 @@ p.post-list {
   }
 }
 
-
-/**
- * Pagination
- */
-.pagination {
-  padding: $spacing-unit / 2 0;
-  border-top: 1px solid $grey-color;
-  border-bottom: 1px solid $grey-color;
-  text-align: center;
-  @extend %clearfix;
-
-  a {
-    color: $text-color;
-  }
-
-  .previous {
-    float: left;
-  }
-
-  .next {
-    float: right;
-  }
-}
-
-
-/**
- * Code Formatting
- */
- .highlight, pre, code {
-  background-color: $grey-color-light;
-  font-family: $monospace-font-family;
-  font-size: $base-font-size * 0.75;
-  @include media-query($on-laptop) {
-    font-size: 0.8rem;
-  }  
-}
-
-div.highlight {
-  overflow: auto;
-  // border: 1px solid $grey-color-light;
-  pre {
-    border: none;
-    overflow: visible;
-  }
-}
-
-pre {
-  padding: 8px 12px;
-  overflow: auto;
-
-  > code {
-    padding: 0;
-  }
-}
-
-table.lntable {
-  td:first-child {
-    border-right: 1px solid $grey-color;
-  }
-}
-
-code {
-  padding: 1px 5px;
-}
-
-/**
- * KaTeX Customizations
- */
-.katex-display {
-  overflow-x: auto;
-  margin: 0.5em 0;
-  .base {
-    margin: 0.25em 0;
-  }
-  .katex {
-    white-space: normal;
-    overflow-x: visible;
-    // overflow-wrap: break-word;
-  }
+.footnotes {
+  font-size: 0.8em;
+  color: $grey-color;
 }

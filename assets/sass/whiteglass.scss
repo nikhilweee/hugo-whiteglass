@@ -1,8 +1,10 @@
 // Define defaults for each variable.
-$base-font-family: Charter, Georgia, serif !default;
-$monospace-font-family: Monaco, Menlo, monospace !default;
-$base-font-size:   16px !default;
+$base-font-family: Helvetica, serif !default;
+$bold-font-family: Helvetica, sans-serif !default;
+$mono-font-family: Monaco, monospace !default;
 $base-font-weight: normal !default;
+$bold-font-weight: bold !default;
+$base-font-size:   16px !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.4 !default;
 
@@ -20,7 +22,7 @@ $grey-color-dark:  darken($grey-color, 30%) !default;
 // Width of the content area
 $content-width:    800px !default;
 $on-palm:          600px !default;
-$on-laptop:        800px !default;
+$on-laptop:        950px !default;
 
 
 // Mixins

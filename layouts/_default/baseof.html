@@ -2,21 +2,20 @@
 {{ "<!-- begin: layouts/_default/baseof.html -->" | safeHTML }}
 <html lang="en">
     {{ partial "head" . }}
-    <body>
-        {{ partial "header" . }}
-        <main class="page-content flex-parent">
-            <div class="sidebar">
-            </div>
-            <div class="wrapper">
+    <body class="flex-parent">
+        <div class="sidebar sidebar-left"></div>
+        <main class="flex-content">
+            {{ partial "header" . }}
+            <div class="page-content wrapper">
                 {{- block "main" . -}}
                     {{- .Content -}}
                 {{- end -}}
             </div>
-            <div class="sidebar">
-                {{ partial "sidebar" . }}
-            </div>
+            {{ partial "footer" . }}
         </main>
-        {{ partial "footer" . }}
+        <div class="sidebar sidebar-right">
+            {{ partial "sidebar" . }}
+        </div>
     </body>
     {{ partial "scripts" . }}
 {{ "<!-- end: layouts/_default/baseof.html -->" | safeHTML }}

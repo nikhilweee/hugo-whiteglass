@@ -6,11 +6,11 @@
         <h1 class="post-title" itemprop="name headline">{{ .Title }}</h1>
         <h2 class="post-subtitle" itemprop="abstract description">{{ .Params.subtitle }}</h2>
         <p class="post-meta">
-            <time datetime="{{ .Date }}" itemprop="datePublished">{{ .Date.Format "Jan 02, 2006" }}</time>
-            {{ " • " }}<span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                <a href="{{ .Site.Author.url }}"><span itemprop="name">{{ .Site.Author.name }}</span></a></span>
+            <time datetime="{{ .Date }}" itemprop="datePublished">{{ .Lastmod.Format "Jan 02, 2006" }}</time>
+            {{/*  {{ " • " }}<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <a href="{{ .Site.Author.url }}"><span itemprop="name">{{ .Site.Author.name }}</span></a></span>  */}}
             {{ range .Params.categories }}{{ " • " }}
-                {{ with $.Site.GetPage . }}
+                {{ with $.Site.GetPage (. | urlize) }}
                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 {{ end }}
             {{ end }}
