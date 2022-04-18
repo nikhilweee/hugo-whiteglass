@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{"<!-- begin: layouts/_default/single.html -->" | safeHTML }}
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    
+
     <header class="post-header">
         <h1 class="post-title" itemprop="name headline">{{ .Title }}</h1>
         <p class="post-subtitle" itemprop="abstract description">{{ .Params.subtitle }}</p>
@@ -22,15 +22,11 @@
             {{ end }}
         </p>
     </header>
-        
+
         <div class="post-content" itemprop="articleBody">
             {{ .Content }}
         </div>
-        
-        {{ if ne .Params.comments false }}
-            {{ template "_internal/disqus.html" . }}
-        {{ end }}
-        
+
     </article>
     {{"<!-- end: layouts/_default/single.html -->" | safeHTML }}
     {{ end }}

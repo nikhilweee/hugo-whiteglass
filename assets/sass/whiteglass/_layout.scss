@@ -162,7 +162,8 @@
   // header: 60px
   // footer: 40px + (10px + 10px)
   // body: min-height + (30px + 30px)
-  min-height: calc(100vh - 180px);
+  // min-height: calc(90vh - 180px);
+  min-height: 80vh;
   padding: $spacing-unit;
 }
 
