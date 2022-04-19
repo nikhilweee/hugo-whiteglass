@@ -2,17 +2,21 @@
 <div class="wrapper">
     <header class="site-header">
         <nav class="site-title">
-            {{ if not (hasPrefix .RelPermalink "/blog") }}
+            {{ if ne .Section "blog" }}
                 <a href="/"><strong>{{ .Site.Author.name }}</strong></a>
             {{ else }}
                 <a href="/blog"><strong>{{ .Site.Title }}</strong></a>
             {{ end }}
         </nav>
         <nav class="site-nav">
-        {{ if or (.IsHome) (eq .Section "resume") }}
+        {{ if .IsHome }}
+            <a href="/resume/">Resume</a>
+            <a href="/blog/">Blog</a>
+        {{ else if eq .Section "resume" }}
+            <a href="/">About</a>
             <a href="/blog/">Blog</a>
         {{ else }}
-            <a href="/blog/archives/">Archives</a>
+            <a href="/blog/archives">Archives</a>
             <a href="/">About</a>
         {{ end }}
             <a id="theme-toggle">
