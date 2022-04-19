@@ -3,7 +3,6 @@
 
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
-        changeGiscusTheme();
     } else if (localStorage.getItem("pref-theme") === "light") {
         document.body.classList.remove('dark')
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -22,22 +21,23 @@
         }
     })
 
-    async function changeGiscusTheme() {
+    function changeGiscusTheme() {
         let theme = localStorage.getItem("pref-theme");
         let message = { setConfig: { theme: theme } };
         let iframe = document.querySelector('iframe.giscus-frame');
-        let tries = 0
-        while (!iframe && tries < 10) {
-            tries += 1;
-            // sleep for 500ms. try max 10 times.
-            // console.log('waiting for disqus ...')
-            await new Promise(r => setTimeout(r, 500));
-            iframe = document.querySelector('iframe.giscus-frame');
-        }
         if (iframe) {
             iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
         }
     }
+
+    function handleMessage(event) {
+        if (event.origin !== 'https://giscus.app') return;
+        if (!(typeof event.data === 'object' && event.data.giscus)) return;
+        const giscusData = event.data.giscus;
+        changeGiscusTheme();
+    }
+      
+    window.addEventListener('message', handleMessage);
 
 </script>
 
@@ -48,7 +48,7 @@
 {{ if and (eq .Section "blog") (.IsPage) (ne .Params.comments false) }}
     <script src="https://giscus.app/client.js" data-repo="nikhilweee/nikhilweee.github.io"
         data-repo-id="MDEwOlJlcG9zaXRvcnkzOTU5NjUwNTc=" data-category="Comments" data-category-id="DIC_kwDOF5nygc4COpdc"
-        data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"
+        data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top"
         data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async>
     </script>
 {{ end }}
