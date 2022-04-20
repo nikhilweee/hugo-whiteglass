@@ -2,23 +2,22 @@
 <div class="wrapper">
     <header class="site-header">
         <nav class="site-title">
-            {{ if ne .Section "blog" }}
+            {{ if eq .Section "about" }}
                 <a href="/"><strong>{{ .Site.Author.name }}</strong></a>
             {{ else }}
                 <a href="/blog"><strong>{{ .Site.Title }}</strong></a>
             {{ end }}
         </nav>
         <nav class="site-nav">
-        {{ if .IsHome }}
-            <a href="/resume/">Resume</a>
-            <a href="/blog/">Blog</a>
-        {{ else if eq .Section "resume" }}
             <a href="/">About</a>
             <a href="/blog/">Blog</a>
+        {{ if eq .Section "about" }}
+            <a href="/resume/">Resume</a>
         {{ else }}
             <a href="/blog/archives">Archives</a>
-            <a href="/">About</a>
         {{ end }}
+        </nav>
+        <nav class="site-toggle">
             <a id="theme-toggle">
                 <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24"
                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round"

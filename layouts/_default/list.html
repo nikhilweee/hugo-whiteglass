@@ -5,7 +5,9 @@
   {{ with .Title }}
     <h1 class="page-heading">{{ . }}</h1><hr>
   {{ end }}
-  <p>{{ .Content }}</p>
+  {{ with .Content }}
+    <p>{{ . }}</p>
+  {{ end }}
 
   <ul class="post-list">
     {{ range .Paginator.Pages }}

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <!-- Prevent mobile browsers from zooming out -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ hugo.Generator }}
 
     {{ if not (hasPrefix .RelPermalink "/blog") }}
         <title>{{- .Site.Author.name -}}{{ with .Title }} - {{ . }}{{ end }}</title>

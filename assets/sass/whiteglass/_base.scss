@@ -295,6 +295,7 @@ code {
   */
 .katex-display {
   overflow-x: auto;
+  overflow-y: hidden;
   margin: 0.5em 0;
 
   .base {

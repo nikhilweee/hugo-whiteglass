@@ -41,6 +41,13 @@
 
 </script>
 
+{{ if not hugo.IsProduction }}
+    <script>
+        let p = document.querySelector('.site-footer .wrapper p');
+        p.innerHTML = window.screen.width + ' * ' + window.screen.height + "<br />" + p.innerHTML;
+    </script>
+{{ end }}
+
 {{ if .Site.GoogleAnalytics }}
     {{ template "_internal/google_analytics.html" . }}
 {{ end }}
@@ -48,7 +55,7 @@
 {{ if and (eq .Section "blog") (.IsPage) (ne .Params.comments false) }}
     <script src="https://giscus.app/client.js" data-repo="nikhilweee/nikhilweee.github.io"
         data-repo-id="MDEwOlJlcG9zaXRvcnkzOTU5NjUwNTc=" data-category="Comments" data-category-id="DIC_kwDOF5nygc4COpdc"
-        data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top"
+        data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"
         data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async>
     </script>
 {{ end }}
