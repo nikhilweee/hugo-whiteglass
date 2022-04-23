@@ -27,7 +27,7 @@
         <div>
           <div class="post-list-meta">
             {{ range .Params.categories }}
-              {{ with $.Site.GetPage . }}
+              {{ with $.Site.GetPage ( . | urlize ) }}
               <a href="{{- .RelPermalink -}}">
                 {{ .Title }}
               </a>
