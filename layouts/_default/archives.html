@@ -23,8 +23,8 @@
         <ul class="post-list">
             {{- range $pages -}}
             <li>
-                <div>
-                    <div class="post-list-meta">
+                <div class="post-list-container">
+                    <div class="post-list-date">
                         <span>
                             {{ .Date.Format "Jan 02, 2006" }}
                         </span>
@@ -34,9 +34,7 @@
                             {{ .Title }}
                         </a>
                     </div>
-                </div>
-                <div>
-                    <div class="post-list-meta">
+                    <div class="post-list-tags">
                         &nbsp;
                     </div>
                     <div class="post-list-subtitle">
