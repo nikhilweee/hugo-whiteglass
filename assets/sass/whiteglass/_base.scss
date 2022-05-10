@@ -287,6 +287,9 @@ table.lntable {
 
 code {
   padding: 1px 5px;
+  span.gp {
+    user-select: none;
+  }
 }
 
 
