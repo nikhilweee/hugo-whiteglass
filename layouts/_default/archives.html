@@ -6,46 +6,48 @@
     <p>{{ .Content }}</p>
 
     {{- if gt (len .Site.Taxonomies.categories) 0 -}}
-    <p class="post-list">
+    <p>
         {{ range .Site.Taxonomies.categories }}
         <a href="#{{ .Page.Title | urlize }}-ref">
             {{- .Page.Title -}}
         </a> &nbsp;
         {{- end -}}
     </p>
-    <ul class="post-list">
+    <div>
         {{- range $name, $pages := .Site.Taxonomies.categories -}}
         <h2 id="{{ $name | urlize }}-ref" class="post-list-category">
             <a href="{{- .Page.RelPermalink -}}">
                 {{- .Page.Title -}}
             </a>
         </h2>
-        <ul class="post-list">
+        <table class="post-list">
             {{- range $pages -}}
-            <li>
-                <div class="post-list-container">
-                    <div class="post-list-date">
+                <tr>
+                    <td class="post-list-date">
                         <span>
                             {{ .Date.Format "Jan 02, 2006" }}
                         </span>
-                    </div>
-                    <div class="post-list-title">
+                    </td>
+                    <td class="post-list-title">
                         <a href="{{- .RelPermalink -}}">
                             {{ .Title }}
                         </a>
-                    </div>
-                    <div class="post-list-tags">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="post-list-tags">
                         &nbsp;
-                    </div>
-                    <div class="post-list-subtitle">
+                    </td>
+                    <td class="post-list-subtitle">
                         {{ .Params.subtitle }}
-                    </div>
-                </div>
-            </li>
+                    </td>
+                </tr>
+                <tr class="break">
+                </tr>
             {{ end }}
-        </ul>
+        </table>
         {{ end }}
-    </ul>
+    </div>
     {{ end }}
 </div>
 {{"<!-- end: layouts/_default/archives.html -->" | safeHTML }}
