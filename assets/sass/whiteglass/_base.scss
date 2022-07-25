@@ -53,10 +53,12 @@ body {
   overflow: overlay;
 }
 
-table {
-  margin: 0 0 20px 0;
-  text-align: left;
-}
+// TODO: Check if this is needed
+// 
+// table {
+//   margin: 0 0 20px 0;
+//   text-align: left;
+// }
 
 // Set `margin-bottom` to maintain vertical rhythm
 h1,
@@ -267,6 +269,7 @@ div.highlight {
   pre {
     border: none;
     overflow: visible;
+    margin-bottom: 0;
   }
 }
 
@@ -280,6 +283,8 @@ pre {
 }
 
 table.lntable {
+  margin: 0;
+
   td:first-child {
     border-right: 1px solid $grey-color;
   }
@@ -287,6 +292,7 @@ table.lntable {
 
 code {
   padding: 1px 5px;
+
   span.gp {
     user-select: none;
   }
