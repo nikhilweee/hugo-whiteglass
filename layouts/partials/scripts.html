@@ -22,8 +22,8 @@
         }
     }
 
-    if ((localStorage.getItem("pref-theme") === "dark") 
-        || (window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if ((localStorage.getItem("pref-theme") != "light") 
+        && (window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.getElementById("theme-toggle").click();
     }
 
