@@ -15,9 +15,10 @@
   display: flex;
   justify-content: space-around;
   font-family: $bold-font-family;
-  
+
   a {
     color: $text-color;
+
     strong {
       vertical-align: text-bottom;
     }
@@ -30,11 +31,11 @@
   display: flex;
   font-size: 1.2em;
   flex-direction: row-reverse;
-  
+
   a {
     color: $text-color;
     margin-left: 0.5em;
-  } 
+  }
 }
 
 .site-toggle {
@@ -62,14 +63,16 @@
     justify-content: left;
     border-top: solid 1px $grey-color;
     flex-direction: row;
+
     a:first-child {
       margin-left: 0;
     }
   }
+
   .site-toggle {
     order: 2;
   }
-} 
+}
 
 
 /**
@@ -206,11 +209,6 @@
   }
 }
 
-.post-meta {
-  font-size: $small-font-size;
-  color: $grey-color;
-}
-
 .post-link {
 
   &,
@@ -304,22 +302,28 @@
  * Posts
  */
 .post-title {
-  font-size: 2.2em;
+  font-size: 1.8em;
+  margin-bottom: 0.0em;
 
   @include media-query($on-laptop) {
     font-size: 1.7em;
   }
-
-  margin-bottom: 0.2em;
 }
 
 .post-subtitle {
-  font-size: 1.5em;
+  font-size: 1.4em;
+  margin-bottom: 0.5em;
   font-family: $bold-font-family;
 
   @include media-query($on-laptop) {
     font-size: 1.4em;
   }
+}
+
+.post-meta {
+  font-size: $small-font-size;
+  margin-bottom: $spacing-unit * 0.5;
+  color: $grey-color;
 }
 
 .post-content {
@@ -331,7 +335,7 @@
   // text-align: justify;
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
 
     @include media-query($on-laptop) {
       font-size: 1.6rem;
@@ -347,7 +351,7 @@
   }
 
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 
     @include media-query($on-laptop) {
       font-size: 1.3rem;
