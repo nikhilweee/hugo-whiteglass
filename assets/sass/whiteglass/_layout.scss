@@ -302,21 +302,21 @@
  * Posts
  */
 .post-title {
-  font-size: 1.8em;
+  font-size: 1.5em;
   margin-bottom: 0.0em;
 
   @include media-query($on-laptop) {
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
 }
 
 .post-subtitle {
-  font-size: 1.4em;
+  font-size: 1.2em;
   margin-bottom: 0.5em;
   font-family: $bold-font-family;
 
   @include media-query($on-laptop) {
-    font-size: 1.4em;
+    font-size: 1.2em;
   }
 }
 
@@ -334,26 +334,26 @@
   // text-align: justify;
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.25rem;
 
     @include media-query($on-laptop) {
-      font-size: 1.6rem;
+      font-size: 1.25rem;
     }
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.15rem;
 
     @include media-query($on-laptop) {
-      font-size: 1.5rem;
+      font-size: 1.15rem;
     }
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 
     @include media-query($on-laptop) {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
   }
 
