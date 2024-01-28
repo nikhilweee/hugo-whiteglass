@@ -3,7 +3,7 @@
     <header class="site-header">
         <nav class="site-title">
             {{ if eq .Section "about" }}
-                <a href="/"><strong>{{ .Site.Author.name }}</strong></a>
+                <a href="/"><strong>{{ .Site.Params.author.name }}</strong></a>
             {{ else }}
                 <a href="/blog"><strong>{{ .Site.Title }}</strong></a>
             {{ end }}
