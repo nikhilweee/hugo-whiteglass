@@ -52,3 +52,15 @@
     async
   ></script>
 {{ end }}
+
+{{ if and (eq .Section "blog" ) (.IsPage) (not (eq .Params.toc false)) }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+  <script>
+    tocbot.init({
+      tocSelector: "#tocbot",
+      contentSelector: "#content",
+      headingSelector: "h1, h2, h3",
+      orderedList: false,
+    });
+  </script>
+{{ end }}

@@ -54,7 +54,20 @@ nav.site-nav h1 a {
   color: var(--foreground-color);
 }
 
-/* 
+/*
+ *
+ * Images
+ *
+ */
+
+figure {
+  img,
+  video {
+    width: 100%;
+  }
+}
+
+/*
  *
  * Tables
  *
