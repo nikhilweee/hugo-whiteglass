@@ -4,8 +4,13 @@
       <a class="next" href="{{ .Paginator.Next.URL }}">Next &raquo;</a>
     {{ end }}
 
+
+    <a href="{{ .Paginator.URL }}" class="current">
+      {{ .Paginator.PageNumber }}
+    </a>
+
     {{ if .Paginator.HasPrev }}
-      <a class="previous" href="{{ .Paginator.Prev.URL }}">&laquo; Previous</a>
-      {{ end }}
-    </div>
+      <a class="prev" href="{{ .Paginator.Prev.URL }}">&laquo; Previous</a>
+    {{ end }}
+  </div>
 {{ end }}

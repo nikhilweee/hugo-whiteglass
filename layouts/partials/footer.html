@@ -1,14 +1,14 @@
 {{ "<!-- begin: layouts/partials/footer.html -->" | safeHTML }}
-<div class="wrapper">
+<footer>
     <div class="giscus"></div>
-</div>
-<footer class="site-footer">
-    <div class="wrapper">
-        <p>
-            &copy; {{ now.Year }} <a href="{{ .Site.Author.url }}">{{ .Site.Author.name }}</a>
-            <br />
-            <a href="/feed.xml">RSS</a> • <a href="https://github.com/nikhilweee/hugo-whiteglass">Theme</a>
-        </p>
-    </div>
+    <p>
+      &copy;
+      {{ now.Year }}
+      <a href="{{ .Site.Author.url }}">{{ .Site.Params.author.name }}</a>
+      <br />
+      <a href="/feed.xml">RSS</a> •
+      <a href="https://github.com/nikhilweee/hugo-whiteglass">Theme</a>
+    </p>
+  </div>
 </footer>
 {{ "<!-- end: layouts/partials/footer.html -->" | safeHTML }}

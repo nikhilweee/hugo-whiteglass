@@ -1,40 +1,47 @@
 {{ define "main" }}
-{{"<!-- begin: layouts/_baseof/taxonomy.html -->" | safeHTML }}
-<div class="home">
+  {{ "<!-- begin: layouts/_default/taxonomy.html -->" | safeHTML }}
+  <div class="home">
+    {{ $taxonomy := .Site.GetPage .Data.Plural }}
 
-  <h1 class="page-heading">{{ .Title }}</h1><hr>
-  <p>{{ .Content }}</p>
+    {{ range $taxonomy.Pages }}
+      <span class="tag">
+        <a href="{{ .RelPermalink }}">
+          {{ .Name }}
+        </a>
+      </span>
+    {{ end }}
 
-  <table class="post-list">
+
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Content }}</p>
     {{ range .Paginator.Pages }}
-    <tr>
-      <td class="post-list-date">
+      <div class="post-list-grid">
         <span>
           {{- .Date.Format "Jan 02, 2006" -}}
         </span>
-      </td>
-      <td class="post-list-title">
-        <a href="{{- .Permalink | relURL -}}">
+        <a href="{{- .RelPermalink -}}">
           {{- .Title -}}
         </a>
-      </td>
-    </tr>
-    <tr>
-      <td class="post-list-tags">
-        <a href="{{ relref . .Params.category }}">
-          {{- .Params.category -}}
-        </a>
-      </td>
-      <td class="post-list-subtitle">
-        {{ .Params.subtitle }}
-      </td>
-    </tr>
-    <tr class="break">
-    </tr>
+        <span class="post-list-muted">{{ .ReadingTime }} min read</span>
+        <span class="post-list-taxonomies">
+          {{ with .Params.categories }}
+            {{ range first 1 . }}
+              {{ with $.Site.GetPage ( . | urlize ) }}
+                <span class="tag">
+                  <a href="{{- .RelPermalink -}}">
+                    {{ .Title }}
+                  </a>
+                </span>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </span>
+      </div>
+      <p></p>
     {{ end }}
-  </table>
-  {{ partial "pagination" . }}
-  
-</div>
-{{"<!-- end: layouts/_baseof/taxonomy.html -->" | safeHTML }}
+
+    {{ partial "pagination" . }}
+
+  </div>
+  {{ "<!-- end: layouts/_default/taxonomy.html -->" | safeHTML }}
 {{ end }}

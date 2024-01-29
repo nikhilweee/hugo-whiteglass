@@ -1,22 +1,35 @@
-<!DOCTYPE html>
-{{ "<!-- begin: layouts/_default/baseof.html -->" | safeHTML }}
+<!doctype html> {{ "<!-- begin: layouts/_default/baseof.html -->" | safeHTML }}
 <html lang="en">
-    {{ partial "head" . }}
-    <body class="flex-parent">
-        <div class="sidebar sidebar-left"></div>
-        <main class="flex-content">
-            {{ partial "header" . }}
-            <div class="page-content wrapper">
-                {{- block "main" . -}}
-                    {{- .Content -}}
-                {{- end -}}
-            </div>
-            {{ partial "footer" . }}
-        </main>
-        <div class="sidebar sidebar-right">
-            {{ partial "sidebar" . }}
-        </div>
-    </body>
+  {{ partial "head" . }}
+  <body data-theme="dark">
+    <script>
+      if (localStorage.getItem("theme") === "light") {
+        document.body.setAttribute("data-theme", "light");
+      } else if (localStorage.getItem("theme") === "dark") {
+        document.body.setAttribute("data-theme", "dark");
+      } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+        document.body.setAttribute("data-theme", "light");
+      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.body.setAttribute("data-theme", "dark");
+      }
+    </script>
+    {{ partial "header" . }}
+    <aside>
+      {{ block "aside" . }}{{ end }}
+    </aside>
+    <!-- Main -->
+    <main>
+      <section id="heading">
+        {{ block "heading" . }}{{ end }}
+      </section>
+      <section id="content">
+        {{- block "main" . -}}
+          {{- .Content -}}
+        {{- end -}}
+      </section>
+    </main>
+    {{ partial "footer" . }}
     {{ partial "scripts" . }}
-{{ "<!-- end: layouts/_default/baseof.html -->" | safeHTML }}
+  </body>
+  {{ "<!-- end: layouts/_default/baseof.html -->" | safeHTML }}
 </html>
