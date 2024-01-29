@@ -12,6 +12,7 @@ body {
   line-height: 1.6em;
   background: var(--background-color);
   color: var(--foreground-color);
+  scrollbar-color: var(--muted-color) var(--code-color);
 }
 
 a {
@@ -34,63 +35,23 @@ blockquote {
  *
  */
 
-nav#site-nav {
+nav.site-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-nav#site-nav ul {
+nav.site-nav ul {
   display: flex;
   list-style: none;
 }
 
-nav#site-nav li {
+nav.site-nav li {
   padding-left: 1rem;
 }
 
-nav#site-nav h1 a {
+nav.site-nav h1 a {
   color: var(--foreground-color);
-}
-
-/* 
- *
- * Code blocks
- *
- */
-
-code {
-  background-color: var(--code-color);
-  border-radius: 2px;
-  padding: 0.25rem;
-}
-
-pre {
-  padding: 1rem;
-  overflow: auto;
-}
-
-pre[data-linenos] {
-  padding: 1rem 0;
-}
-
-pre table td {
-  padding: 0;
-}
-
-pre table td:nth-of-type(1) {
-  text-align: center;
-  user-select: none;
-}
-
-pre mark {
-  display: block;
-  background-color: rgba(254, 252, 232, 0.9);
-}
-
-pre table {
-  width: 100%;
-  border-collapse: collapse;
 }
 
 /* 

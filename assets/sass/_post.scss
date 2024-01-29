@@ -20,7 +20,7 @@ aside ul {
   margin: 0;
 }
 
-aside > ul {
+aside > nav > ul {
   padding-inline-start: 0;
 }
 
@@ -68,6 +68,7 @@ aside > ul {
   border-radius: 5px;
   padding: 0.5rem;
   display: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1280px) {

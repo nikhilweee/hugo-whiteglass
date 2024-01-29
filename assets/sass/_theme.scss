@@ -14,7 +14,7 @@ body {
 body[data-theme="dark"] {
   --foreground-color: #f5f5f7;
   --background-color: #000000;
-  --code-color: #222222;
+  --code-color: #0d1117;
   --muted-color: #86868b;
   --link-color: #2897ff;
 
@@ -26,7 +26,7 @@ body[data-theme="dark"] {
 body[data-theme="light"] {
   --foreground-color: #1d1d1f;
   --background-color: #ffffff;
-  --code-color: #fafafa;
+  --code-color: #f6f8fa;
   --muted-color: #6e6e73;
   --link-color: #0066cc;
 
@@ -40,4 +40,25 @@ button#theme-toggle {
   border: none;
   cursor: pointer;
   color: var(--foreground-color);
+}
+
+/*
+ *
+ * Code blocks
+ *
+ */
+
+code {
+  background-color: var(--code-color);
+  border-radius: 2px;
+  padding: 0.25rem;
+}
+
+pre {
+  padding: 0.5rem;
+  overflow: auto;
+}
+
+pre code {
+  padding: 0;
 }
