@@ -1,0 +1,149 @@
+/* 
+ *
+ * Typography
+ *
+ * https://modernfontstacks.com/
+ *
+ */
+
+body {
+  font-family: system-ui, sans-serif;
+  font-weight: normal;
+  line-height: 1.6em;
+  background: var(--background-color);
+  color: var(--foreground-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+blockquote {
+  border-left: 5px solid var(--muted-color);
+  margin-inline-start: 0;
+  padding-left: 1em;
+  color: var(--muted-color);
+}
+
+/* 
+ *
+ * Navigation
+ *
+ * https://dev.to/supanthapaul/create-a-simple-navbar-with-7-lines-of-css-4h7f
+ *
+ */
+
+nav#site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav#site-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav#site-nav li {
+  padding-left: 1rem;
+}
+
+nav#site-nav h1 a {
+  color: var(--foreground-color);
+}
+
+/* 
+ *
+ * Code blocks
+ *
+ */
+
+code {
+  background-color: var(--code-color);
+  border-radius: 2px;
+  padding: 0.25rem;
+}
+
+pre {
+  padding: 1rem;
+  overflow: auto;
+}
+
+pre[data-linenos] {
+  padding: 1rem 0;
+}
+
+pre table td {
+  padding: 0;
+}
+
+pre table td:nth-of-type(1) {
+  text-align: center;
+  user-select: none;
+}
+
+pre mark {
+  display: block;
+  background-color: rgba(254, 252, 232, 0.9);
+}
+
+pre table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* 
+ *
+ * Tables
+ *
+ */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid var(--muted-color);
+  padding: 0.5em;
+}
+
+/* 
+ *
+ * Footer
+ *
+ */
+
+footer {
+  text-align: center;
+}
+
+/* 
+ *
+ * Pagination
+ *
+ */
+
+div.pagination {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "prev current next";
+  background-color: var(--code-color);
+  padding: 0.5rem;
+  border-radius: 5px;
+
+  a.prev {
+    grid-area: prev;
+    justify-self: start;
+  }
+  a.current {
+    grid-area: current;
+    justify-self: center;
+  }
+  a.next {
+    grid-area: next;
+    justify-self: end;
+  }
+}
