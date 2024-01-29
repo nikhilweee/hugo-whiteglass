@@ -58,12 +58,40 @@ aside {
   border-radius: 5px;
   padding: 0.5rem;
   display: none;
+}
+
+.post-toc summary {
   cursor: pointer;
+}
+
+.post-toc ul {
+  padding-left: 2rem;
 }
 
 @media screen and (max-width: 1280px) {
   .post-toc {
     display: block;
+  }
+}
+
+/*
+ *
+ * Images
+ *
+ */
+
+figure {
+  img,
+  video {
+    width: 100%;
+  }
+}
+
+figcaption {
+  color: var(--muted-color);
+  text-align: center;
+  p {
+    margin-top: 0;
   }
 }
 
