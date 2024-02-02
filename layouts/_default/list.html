@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ "<!-- begin: layouts/_default/list.html -->" | safeHTML }}
   <div class="home">
-    <h1>{{ .Title }}</h1>
+    <h1 data-pagefind-meta="title">{{ .Title }}</h1>
     <p>{{ .Content }}</p>
 
     {{ range .Paginator.Pages }}

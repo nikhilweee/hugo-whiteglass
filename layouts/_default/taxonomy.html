@@ -12,7 +12,7 @@
     {{ end }}
 
 
-    <h1>{{ .Title }}</h1>
+    <h1 data-pagefind-meta="title">{{ .Title }}</h1>
     <p>{{ .Content }}</p>
     {{ range .Paginator.Pages }}
       <div class="post-list-grid">
