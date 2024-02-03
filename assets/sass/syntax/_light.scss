@@ -5,7 +5,7 @@ body[data-theme="light"] {
   }
   /* PreWrapper */
   .chroma {
-    background-color: #f6f8fa;
+    background-color: var(--code-color);
   }
   /* Other */
   .chroma .x {
