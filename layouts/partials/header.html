@@ -3,9 +3,9 @@
   <nav class="site-nav">
     <h1>
       {{ if eq .Section "about" }}
-        <a href="/"><strong>{{ .Site.Params.author.name }}</strong></a>
+      <a href="/"><strong>{{ .Site.Params.author.name }}</strong></a>
       {{ else }}
-        <a href="/blog"><strong>{{ .Site.Title }}</strong></a>
+      <a href="/blog"><strong>{{ .Site.Title }}</strong></a>
       {{ end }}
     </h1>
     <ul>
@@ -47,12 +47,13 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       </button>
+
+      {{ range site.Menus.main }}
       <li>
-        <a href="/">About</a>
+        <a href="{{ .PageRef }}">{{ .Name }}</a>
       </li>
-      <li>
-        <a href="/blog/">Blog</a>
-      </li>
+      {{ end }}
+
       <a href="/search/">
         <button>
           <svg
