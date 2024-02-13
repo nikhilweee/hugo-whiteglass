@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   {{ hugo.Generator }}
 
+
+  <!-- prettier-ignore -->
   {{ if not (hasPrefix .RelPermalink "/blog") }}
-    <title>{{- .Site.Author.name -}}{{ with .Title }}- {{ . }}{{ end }}</title>
+    <title>{{ .Site.Params.author.name }}{{ with .Title }} - {{ . }}{{ end }}</title>
   {{ else }}
-    <title>{{ with .Title }}{{- . }} -{{ end }}{{ .Site.Title -}}</title>
+    <title>{{ with .Title }}{{ . }} - {{ end }}{{ .Site.Title -}}</title>
   {{ end }}
 
   {{- $options := dict "transpiler" "dartsass" "targetPath" "style.css" "enableSourceMap" true -}}
@@ -27,11 +29,8 @@
   <link rel="canonical" href="{{- .Permalink -}}" />
 
   {{ if .Params.citations }}
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ "/hugo-cite.css" | relURL }}"
-    />
+    <!-- prettier-ignore -->
+    <link rel="stylesheet" type="text/css" href='{{ "/hugo-cite.css" | relURL }}' />
   {{ end }}
 
 
