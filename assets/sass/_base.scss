@@ -86,11 +86,12 @@ nav.site-nav ul {
 
 nav.site-nav li,
 nav.site-nav button {
-  padding-left: 1rem;
+  padding-left: 0.5rem;
 }
 
 nav.site-nav h1 a {
   color: var(--foreground-color);
+  vertical-align: super;
 }
 
 /*
