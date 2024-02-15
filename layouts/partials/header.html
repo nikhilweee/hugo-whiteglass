@@ -2,12 +2,13 @@
 <header>
   <nav class="site-nav">
     <h1>
-      {{ if eq .Section "about" }}
-      <a href="/"><strong>{{ .Site.Params.author.name }}</strong></a>
+      {{ with .Page.CurrentSection.Params.SiteTitle }}
+        <a href="{{ $.Page.CurrentSection.RelPermalink }}"><strong>{{ . }}</strong></a>
       {{ else }}
-      <a href="/blog"><strong>{{ .Site.Title }}</strong></a>
+        <a href="/"><strong>{{ .Site.Title }}</strong></a>
       {{ end }}
     </h1>
+
     <ul>
       <button id="theme-toggle">
         <svg
@@ -48,11 +49,13 @@
         </svg>
       </button>
 
-      {{ range site.Menus.main }}
-      <li>
-        <a href="{{ .PageRef }}">{{ .Name }}</a>
-      </li>
+      <!-- Get menu for current section. Fallback to default menu -->
+      {{ range or (index .Site.Menus .Page.Section) (.Site.Menus.main) }}
+        <li>
+          <a href="{{ .PageRef }}">{{ .Name }}</a>
+        </li>
       {{ end }}
+
 
       <a href="/search/">
         <button>

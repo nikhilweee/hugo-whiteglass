@@ -141,9 +141,12 @@ div.pagination {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "prev current next";
-  background-color: var(--code-color);
-  padding: 0.5rem;
-  border-radius: 5px;
+
+  a {
+    background-color: var(--code-color);
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
 
   a.prev {
     grid-area: prev;
