@@ -14,14 +14,12 @@
   </h1>
   <div class="post-meta">
     {{ .PublishDate.Format "Jan 02, 2006" }} • {{ .ReadingTime }} mins read
-    {{- range $index, $category := .Params.categories -}}
-      {{ with $.Site.GetPage ( . | urlize ) }}
-        •
-        <span class="tag">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </span>
-      {{ end }}
-    {{- end -}}
+    {{ range .GetTerms "categories" }}
+      •
+      <span class="tag">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </span>
+    {{ end }}
   </div>
   {{ "<!-- end: layouts/_default/single.html -->" | safeHTML }}
 {{ end }}

@@ -14,16 +14,12 @@
         </a>
         <span class="post-list-muted">{{ .ReadingTime }} min read</span>
         <span class="post-list-taxonomies">
-          {{ with .Params.categories }}
-            {{ range first 1 . }}
-              {{ with $.Site.GetPage ( . | urlize ) }}
-                <span class="tag">
-                  <a href="{{- .RelPermalink -}}">
-                    {{ .Title }}
-                  </a>
-                </span>
-              {{ end }}
-            {{ end }}
+          {{ range first 3 (.GetTerms "categories") }}
+            <span class="tag">
+              <a href="{{- .RelPermalink -}}">
+                {{ .Title }}
+              </a>
+            </span>
           {{ end }}
         </span>
       </div>
